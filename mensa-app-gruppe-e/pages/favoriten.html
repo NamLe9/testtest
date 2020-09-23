@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mensa Ninja</title>
+  <!-- materialize icons, css & js -->
+  <link type="text/css" href="/css/materialize.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" href="/css/styles.css" rel="stylesheet">
+  <script type="text/javascript" src="/js/materialize.min.js"></script>
+  <script type="text/javascript" src="/js/location.js"></script>
+  <link rel="manifest" href="/manifest.json">
+  <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+  <!-- ios support -->
+  <link rel="apple-touch-icon" href="/img/icons/icon2-96x96.png">
+  <meta name="apple-mobile-web-app-status-bar" content="#aa7700">
+  <meta name="theme-color" content="#FFE1C4">
+</head>
+<body class="background">
+
+  <!-- top nav -->
+  <nav class="z-depth-0">
+    <div class="nav-wrapper container">
+      <a href="/pages/dashboard.html">Mensa<span>Ninja</span></a>
+      <span class="right grey-text text-darken-1">
+        <i class="material-icons sidenav-trigger" data-target="side-menu">menu</i>
+      </span>
+    </div>
+  </nav>
+
+  <!-- side nav -->
+  <ul id="side-menu" class="sidenav side-menu">
+    <li><a class="subheader">MENSANINJA</a></li>
+    <li><a href="/pages/dashboard.html" class="waves-effect">Home</a></li>
+    <li><a href="/pages/favoriten.html" class="waves-effect">Favoriten</a></li>
+    <li><a href="/pages/about.html" class="waves-effect">Über uns</a></li>
+    <li><div class="divider"></div></li>
+    <li><a href="/pages/contact.html" class="waves-effect">
+      <i class="material-icons">mail_outline</i>Kontakt</a>
+    </li>
+    <li><a href="/pages/settings.html" class="waves-effect">
+      <i class="material-icons">settings</i>Einstellungen</a>
+    </li>
+  </ul>
+
+  <!-- ueberschrift-->
+  <div class="container brown lighten-3 transparancy rcorners">
+    <style>
+      .box{
+        height: 150px;
+      }
+    </style>
+    <h4 class="secHead">Deine Favoriten</h4>
+    <ul class="collection with-header favoMen">
+      <li class="collection-header"><h6>Lieblinsmensa:</h6></li>
+    </ul>
+
+    <ul class="collection with-header favorites">
+      <li class="collection-header"><h6>Lieblingsspeisen:</h6></li>
+    </ul>
+
+    
+        
+  <script>
+    var ul = document.getElementsByClassName("collection with-header favorites")[0];
+      for(var i = 0; i < 50; i++)
+        if(getCookie('fav' + i) != null){
+          var speise = getCookie('fav' + i);
+          var liTag = createFavoriten(i);
+          ul.appendChild(liTag);
+          document.getElementById('fav' + i).textContent = speise;
+        }
+    var ul2 = document.getElementsByClassName("collection with-header favoMen")[0];
+        if(getCookie('favMen') != null){
+          var favMensa = getCookie('favMen');
+          var liTag = createFavMen(i);
+          ul2.appendChild(liTag);
+          document.getElementById('favMen' + i).textContent = favMensa;
+        }
+
+  </script>
+
+  
+
+  <script src="/js/app.js"></script>
+  <script src="/js/ui.js"></script>
+</body>
+</html>
